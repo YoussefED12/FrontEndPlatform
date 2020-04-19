@@ -1,0 +1,15 @@
+<div *ngIf="info.token; else loggedOut">
+  <h5 class="text-danger">MY PROFILE</h5>
+  <p>
+    <strong>Username:</strong> {{info.username}}<br/>
+    <strong>Roles:</strong> {{info.authorities}}<br />
+    <strong>id:</strong>{{info.id}}
+  </p>
+  <div>
+    {{tokenn}}
+  </div>
+</div>
+
+<ng-template #loggedOut>
+  Please login.
+</ng-template>

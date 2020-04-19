@@ -1,0 +1,34 @@
+<div class="container">
+  <div class="album py-5 bg-light">
+    <div class="row">
+
+      <div class="col-md-4" *ngFor="let course of courses">
+        <div class="card mb-4 box-shadow">
+          <img clas s="card-img-top" style="min-height: 200px;" [src]="'data:image/jpeg;base64,' +course?.image" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="list-view-course-card--title--2pfA0">{{course.trainingName}}</h5><small style="display: inline;"><a [href]="course.user.path">{{course.user.username}}</a></small>
+            <p class="card-text"><i class='far fa-calendar-alt' style='font-size:24px'> {{course.startdate}}</i>&nbsp;&nbsp;
+              <i class='far fa-calendar-times' style='font-size:24px'> {{course.endDate}} </i></p>
+
+              <a [href]="'assets/files/'+course.user.id+'.pdf'" type="application/pdf" width="100%" height="600px" >
+                cxcxTkharbi9
+              </a>
+              <p class="card-text"><i class='fa fa-align-justify' style='font-size:24px'> {{course.description}}</i></p>
+              <p class="card-text"><i class='fas fa-university' style='font-size:24px'> {{course.etablissement}}</i></p>
+
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a
+                    [routerLink]="['../subscription',course.trainingName, course.id]">Subscribe</a> </button>
+                <button  [routerLink]="['../coursesInfo', course.id]" type="button" class="btn btn-sm btn-outline-secondary">Info</button>
+              </div>
+              <small class="text-muted">{{course.ritme}}</small>
+              
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

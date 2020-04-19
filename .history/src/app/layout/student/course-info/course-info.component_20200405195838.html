@@ -1,0 +1,122 @@
+<link
+  href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css"
+  rel="stylesheet"
+/>
+<div class="col-sm-12 col-md-12 col-lg-12">
+  <!-- product -->
+  <div class="product-content product-wrap clearfix product-deatil">
+    <div class="row">
+      <div class="col-md-4 col-sm-12 col-xs-12" style="margin-right: 30px;">
+        <div class="product-image row">
+          <img style="max-width: 450px;" src="../../../../assets/Java.jpg" class="rounded float-left" />
+        </div>
+        <div class="row">
+          <div class="container py-4">
+            <h4>
+              <div class="text-success">
+                {{ courseInfo?.nbrparticipant }} students are Subscribed to this
+                course
+              </div>
+              <div
+                class="text-danger"
+                *ngIf="courseInfo.nbrparticipant == courseInfo.maxSubscribers"
+              >
+                places are soled for this course
+              </div>
+            </h4>
+            <h1 class="pt-2">
+              Description
+            </h1>
+            <p>
+              {{ courseInfo.description }}
+            </p>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-7 col-sm-12 col-xs-12 pl-2">
+        <h2 class="name">
+          {{ courseInfo.trainingName }}
+        </h2>
+        <hr />
+        <h3 class="price-container">Price : {{ coursePrice }} DH</h3>
+        <h3 class="price-container">
+          Establishment : {{ courseInfo.etablissement }}
+        </h3>
+        <h3 class="price-container">
+          TotalHours : {{ totalHours }} H
+        </h3>
+        <div class="certified">
+          <ul>
+            <li>
+              <a href="javascript:void(0);"
+                >Starting Date<span>{{ courseInfo.startdate }}</span></a
+              >
+            </li>
+            <li>
+              <a href="javascript:void(0);"
+                >End Date<span>{{ courseInfo.endDate }}</span></a
+              >
+            </li>
+          </ul>
+        </div>
+        <hr />
+        <div style="padding-bottom: 20px;">
+          <ul class="list-group">
+            <li class="list-group-item active">
+              <strong><h3>Prerequests</h3></strong>
+            </li>
+            <li class="list-group-item">Dapibus ac facilisis in</li>
+            <li class="list-group-item">Morbi leo risus</li>
+            <li class="list-group-item">Porta ac consectetur ac</li>
+            <li class="list-group-item">Vestibulum at eros</li>
+          </ul>
+        </div>
+
+        <div
+          class="description description-tabs"
+          style="margin-top: 0px; padding-top: 0px;"
+        >
+          <ul
+            class="list-group"
+            style="margin-bottom: 0px; padding-bottom: 0px;"
+          >
+            <li class="list-group-item active">
+              <strong><h3>Course Plan</h3></strong>
+            </li>
+          </ul>
+          <table class="table">
+            <thead class="thead-dark">
+              <tr>
+                <th>Name</th>
+                <th>duration</th>
+                <th>description</th>
+                <th>price</th>
+                <th>start date</th>
+                <th>end date</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr *ngFor="let plan of courseInfo.plan">
+                <td>{{ plan.planName }}</td>
+                <td>{{ plan.duration }} hours</td>
+                <td>{{ plan.description }}</td>
+                <td>{{ plan.price }}</td>
+                <td>{{ plan.startdate }}</td>
+                <td>{{ plan.enddate }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col-sm-12 col-md-6 col-lg-6">
+            <a [routerLink]="['../../subscription',courseInfo.trainingName, courseInfo.id]" class="btn btn-success btn-lg"
+              >Subscribe to course</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- end product -->
+</div>

@@ -1,0 +1,53 @@
+<div *ngIf="isLoggedIn; else loggedOut">
+  Logged in as {{roles}}.
+</div>   
+<ng-template #loggedOut>
+  <div class="login-form">
+    <form name="form" (ngSubmit)="f.form.valid && onSubmit()" #f="ngForm" novalidate>
+      
+        
+    <h2 class="text-center">Sign in</h2>   
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-user"></i></span>
+        <input type="text" class="form-control" name="username" placeholder="username" [(ngModel)]="form.username" #username="ngModel"
+        required /></div >
+        <div *ngIf="f.submitted && username.invalid">
+            <div *ngIf="username.errors.required">Username is required</div>
+        
+      </div>
+    </div>
+    <div class="form-group">
+      <div class="input-group">
+        <span class="input-group-addon"><i class="fa fa-lock"></i></span>
+         
+        <input type="password" class="form-control" name="password" placeholder="Password" [(ngModel)]="form.password" #password="ngModel"
+        required minlength="6" />			
+      </div>
+      <div *ngIf="f.submitted && password.invalid">
+          <div *ngIf="password.errors.required">Password is required</div>
+          <div *ngIf="password.errors.minlength">Password must be at least 6 characters</div>
+          </div>
+    </div>        
+    <div class="form-group">
+      <button type="submit" class="btn btn-success btn-lg btn-block" value="Login">Sign in</button>
+       
+                    <div *ngIf="f.submitted && isLoginFailed" class="alert alert-danger">
+                     Login failed: {{errorMessage}}
+                    </div>
+    </div>
+     
+    <div class="or-seperator"><i>or</i></div>
+    <p class="text-center">Login with your social media account</p>
+    <div class="text-center social-btn">
+      <a href="#" class="btn btn-primary"><i class="fa fa-facebook"></i>&nbsp; Facebook</a>
+   
+      <a href="#" class="btn btn-danger"><i class="fa fa-google"></i>&nbsp; Google</a>
+    </div>
+     
+  </form>
+  <p class="text-center text-muted small"><b></b>'t have an account? <a href="signup">Sign up here!</a></p>
+</div>
+ 
+</ng-template>
+ 

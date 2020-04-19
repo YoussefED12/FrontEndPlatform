@@ -1,0 +1,25 @@
+<div class="container">
+  <div class="album py-5 bg-light">
+    <div class="row">
+
+      <div class="col-md-4" *ngFor="let course of courses">
+        <div class="card mb-4 box-shadow">
+          <img class="card-img-top" [src]="course?.image" alt="Card image cap">
+          <div class="card-body">
+            <h5 class="card-title">{{course.trainingName}}</h5>
+            <p class="card-text">{{course.description}}.</p>
+            <div class="d-flex justify-content-between align-items-center">
+              <div class="btn-group">
+                <button type="button" class="btn btn-sm btn-outline-secondary"><a
+                    [routerLink]="['../subscription',course.trainingName, course.id]">Subscribe</a> </button>
+                <button  [routerLink]="['../coursesInfo', course.id]" type="button" class="btn btn-sm btn-outline-secondary">Info</button>
+              </div>
+              <small class="text-muted">{{course.ritme}}</small>
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>

@@ -1,0 +1,30 @@
+<div class="container">            
+             <form>
+               <fieldset>
+                <h2 style="text-align: center;">Personnel Information</h2>
+                 
+                 <div class="form-group">
+                   <label for="nom">Name :</label>
+                   <input type="text" class="form-control" id="nom" placeholder="Pierre GIRAUD" readonly>
+                 </div>
+                 
+                 <div class="form-group">
+                   <label for="email">Email</label>
+                   <input type="email" class="form-control" id="email" placeholder="pierre.giraud@edhec.com" readonly>
+                 </div>
+
+                 <div class="form-group">
+                    <label for="email">User Name</label>
+                    <input type="email" class="form-control" id="email" placeholder="pierre.giraud@edhec.com" readonly>
+                </div>
+                 
+                <div class="form-group">
+                    <label for="nom">Attach your cv :</label>
+                    <input type="file" class="form-control file" id="customFile" (change)="selectFile($event)">
+                    <br>
+                    <button class="btn btn-primary" [disabled]="!selectedFiles || admincheck || status" (click)="upload()">Save File</button>
+                </div>
+
+               </fieldset>
+             </form>
+         </div>

@@ -1,0 +1,30 @@
+<div class="container" >
+  <div class="album py-5 bg-light">
+    <div class="row">
+      <div class="col-md-4" *ngFor="let course of courses" >
+        <div class="card mb-4 box-shadow" style="height: 350px;">
+          <img
+            class="card-img-top"
+            style="min-height: 200px;" 
+            [src]="'data:image/jpeg;base64,' +course?.image"
+            alt="Card image cap"
+          />
+          <div class="card-body">
+            <h5 class="card-title">{{ course.trainingName }}</h5>
+            <p class="card-text">{{ course.description }}.</p>
+
+            <div class="row" >
+              <div class="col align-self-start">
+                <button (click)="startCourse(course.id)" [attr.disabled]="course.started == 1? true : null" class="btn btn-lg btn-success">Lancer</button>
+              </div>
+              <div class="col align-self-end">
+                <div  (click)="delete(course.id)"  class="btn btn-lg btn-danger" style="width: 100px;">Delete</div>
+              </div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

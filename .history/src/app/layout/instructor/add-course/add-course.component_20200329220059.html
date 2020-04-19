@@ -1,0 +1,279 @@
+<div class="container-fluid" style="padding-bottom: 70px; margin-bottom: 50px;">
+  <form>
+    <h2 class="mb-3" style="text-align: center;">Add new course</h2>
+
+    <div class="border border-secondary p-4">
+      <div class="row">
+        <div class="col-sm-10">
+          <div class="form-group">
+            <label for="exampleInputEmail1">nom de formation</label>
+            <input
+              [(ngModel)]="course.trainingName"
+              name="dkfgdfmo"
+              type="text"
+              class="form-control"
+              id="formation"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="coursImg">image cours</label>
+            <input class="ml-4" type="file" (change)="onFileChanged($event)" />
+          </div>
+
+          <div class="form-group">
+            <label for="etablisment">etablisment</label>
+            <input
+              [(ngModel)]="course.etablissement"
+              type="text"
+              name="sdsdfgfest"
+              class="form-control"
+              id="etablisment"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="ssss">Rythme</label>
+            <input
+              [(ngModel)]="course.ritme"
+              name="ssdksdsmo"
+              type="text"
+              class="form-control"
+              id="ssss"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="maxSubscribers">Max Subscribers</label>
+            <input
+              [(ngModel)]="course.maxSubscribers"
+              name="jkafsxdcshweio"
+              type="number"
+              class="form-control"
+              id="maxSubscribers"
+            />
+          </div>
+
+          <div class="row">
+            <div class="form-group col-sm-10">
+              <label for="description">Description</label>
+              <textarea
+                [(ngModel)]="course.description"
+                name="kcjbeuia"
+                class="form-control"
+                id="description"
+                rows="5"
+              ></textarea>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="duration">Duration (hours)</label>
+            <input
+              [(ngModel)]="course.nombreofhours"
+              name="jkafddhweigfo"
+              type="number"
+              class="form-control"
+              id="duration"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="data">Start Date:</label>
+            <input
+              [(ngModel)]="course.startdate"
+              name="cjbfghgfiu"
+              type="date"
+              [min]="minDate"
+              class="form-control"
+              id="date"
+            />
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="ed">End Date</label>
+              <input
+                [(ngModel)]="course.endDate"
+                name="ppsdffssdfrice"
+                type="date"
+                class="form-control"
+                id="ed"
+              />
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="preRequests">preRequests</label>
+            <div class="row">
+              <div class="col-sm-8">
+                <input
+                  [(ngModel)]="preRequest"
+                  name="sxzcxdsas"
+                  type="text"
+                  class="form-control"
+                  id="preRequests"
+                />
+              </div>
+              <div class="col-sm-4">
+                <button
+                  (click)="addCoursePreRequest()"
+                  class="btn  btn-warning"
+                >
+                  <span style="font-weight:900;">Add prerequest</span>
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- list of preRequests -->
+          <div class="list-group">
+            <div
+              *ngFor="let pre of course.preRequests; let i = index"
+              class="row"
+              style="padding-bottom: 5px; padding-top: 5px;"
+            >
+              <a
+                href="#"
+                F
+                class="list-group-item list-group-item-action disabled col-sm-10"
+                >{{ pre }}
+              </a>
+              <button
+                (click)="removePrequest(i)"
+                class="btn btn-danger  col-sm-1"
+              >
+                X
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <h2 class="py-4" style="text-align: center;">Plan de cours</h2>
+
+    <div class="border border-secondary py-0">
+      <div class="col-sm-12">
+        <div class="row">
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label for="name">name</label>
+              <input
+                [(ngModel)]="planElement.planName"
+                name="jkasnfaejk"
+                type="text"
+                class="form-control"
+                id="name"
+              />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label for="dsds">duration</label>
+              <input
+                [(ngModel)]="planElement.duration"
+                name="dduration"
+                type="text"
+                class="form-control"
+                id="dsds"
+              />
+            </div>
+          </div>
+          <div class="col-sm-2">
+            <div class="form-group">
+              <label for="price">price</label>
+              <input
+                [(ngModel)]="planElement.price"
+                name="pprice"
+                type="number"
+                class="form-control"
+                id="price"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="sd">Start Date</label>
+              <input
+                [(ngModel)]="planElement.startdate"
+                name="dfgdssfpprice"
+                type="date"
+                [min]="minDate"
+                class="form-control"
+                id="sd"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3">
+            <div class="form-group">
+              <label for="sd">End Date</label>
+              <input
+                [(ngModel)]="planElement.enddate"
+                name="dfgdssfpprice"
+                type="date"
+                [min]="minDate"
+                class="form-control"
+                id="sd"
+              />
+            </div>
+          </div>
+        
+        </div>
+
+        <div class="row">
+          <div class="col-sm-9">
+            <div class="form-group">
+              <label for="desxcx">description</label>
+              <input
+                [(ngModel)]="planElement.description"
+                name="pprssddice"
+                type="text"
+                class="form-control"
+                id="desxcx"
+              />
+            </div>
+          </div>
+          <div class="col-sm-3 text-center my-auto">
+            <button class="btn  btn-warning " (click)="addPlanElement()">
+              <span style="font-weight:900;">Add course plan</span>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="mb-4">
+      <table class="table table-striped">
+        <thead>
+          <tr>
+            <th scope="col">plan Name</th>
+            <th scope="col">duration (hours)</th>
+            <th scope="col">description</th>
+            <th scope="col">price</th>
+            <th scope="col">startdate</th>
+            <th scope="col">enddate</th>
+            <th scope="col">Action</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let planItem of course.plan; index as i">
+            <td>{{ planItem.planName }}</td>
+            <td>{{ planItem.duration }}</td>
+            <td>{{ planItem.description }}</td>
+            <td>{{ planItem.price }}</td>
+            <td>{{ planItem.startdate }}</td>
+            <td>{{ planItem.enddate }}</td>
+            <td>
+              <button (click)="removePlanElement(i)" class="btn btn-danger">
+                X
+              </button>
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+    <button type="submit" (click)="saveCourse()" class="btn btn-primary">
+      Submit
+    </button>
+  </form>
+</div>

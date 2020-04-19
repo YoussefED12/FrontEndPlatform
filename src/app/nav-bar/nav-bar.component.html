@@ -1,0 +1,48 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light row">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#"
+        ><strong class="text-success">E-Announce</strong>
+      </a>
+    </div>
+    <ul class="nav navbar-nav">
+      <li>
+        <button
+          *ngIf="isLoggedIn"
+          routerLink="notifications"
+          class="btn mx-4 btn-success"
+          [ngClass]="{ 'btn-danger': notified }"
+        >
+          <i class="fas fa-globe-europe fa-900px"></i>
+          <strong>Notifications </strong>
+          <p *ngIf="notified" style="display: inline;">({{ notifsNumber }})</p>
+          <p *ngIf="!notified" style="display: inline;">(none)</p>
+        </button>
+      </li>
+
+      <li *ngIf="isLoggedIn" class="nav-item">
+        <button class="btn btn-secondary">
+          <a
+            class="text-ligth"
+            (click)="logout()"
+            style="color: aliceblue;"
+            routerLink="auth/login"
+            ><strong> <i class="fas fa-sign-out-alt"></i>LogOut</strong></a
+          >
+        </button>
+      </li>
+
+      <li *ngIf="!isLoggedIn" class="nav-item">
+        <button class="btn btn-success">
+          <a
+            class="text-ligth"
+            style="color: aliceblue;"
+            routerLink="auth/login"
+            ><strong>Login</strong></a
+          >
+        </button>
+      </li>
+    </ul>
+  </div>
+</nav>
+<script src="https://code.jquery.com/jquery-3.5.0.min.js"></script>
